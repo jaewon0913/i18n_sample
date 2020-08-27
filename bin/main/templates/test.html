@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#language").change(function () {
+        var selectedOption = $('#locales').val();
+        if (selectedOption != ''){
+            window.location.replace('test?lang=' + selectedOption);
+        }
+    });
+});
+</script>
+</head>
+<body>
+	
+	<h1>i18n 테스트(다국어 테스트)</h1>
+	
+	<span th:text="#{lang.change}"></span>:
+	<select id="language">
+		<option value=""></option>
+		<option value="en" th:text="#{lang.eng}"></option>
+		<option value="ko" th:text="#{lang.ko}"></option>
+		<option value="jp" th:text="#{lang.jp}"></option>
+	</select>
+	
+	<hr>
+	<h3 th:text="#{greeting}"></h3>
+	<h3 th:text="'파일: ' + #{filename}"></h3>
+	
+</body>
+</html>
